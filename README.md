@@ -1,29 +1,57 @@
-# Create T3 App
+# Voting App
+This project has been made as part of the [ESGAE](https://esgae.org/) computer
+science club projects.
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+The app is a simple voting app that allows users to create polls and vote on them.
+This is tend to be use in the cultural days of the school to vote for the
+miss of the school.
 
-## What's next? How do I make an app with this?
+## Content Table
+- [How to use](#how-to-use)
+- [Technologies](#technologies)
+- [Features](#features)
+- [Contributors](#contributing)
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
+## How to use
+
+>! NOTE:
+> In this example we use bun as package manager, you can use npm or yarn if you want.
+1. Copy `.env.example` and rename to `.env` and add your keys found in the dashboard.
+
+```
+    mv .env.example .env
+```
+
+2. Run this to install dependencies
+```
+ bun install
+```
+
+3. Once installed, ./start-database.sh will start the database
+This will create or start a docker container with the postgres database.
+>! NOTE:
+> You should have docker installed.
+```
+./start-database.sh
+```
+
+4. Initialize the prisma database:
+This will push the schema to the database and generate the client.
+```
+bun db:push
+```
+
+6. Start the server
+```
+bun dev
+```
+
+## Technologies
+- [Next.js](https://nextjs.org/)
+- [Prisma](https://www.prisma.io/)
 - [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
-
-## Learn More
-
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
-
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
-
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
-
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+- [PostgreSQL](https://www.postgresql.org/)
+- [Shadcn/ui](https://ui.shadcn.com/)
+- [tRPC](https://trpc.io/)
