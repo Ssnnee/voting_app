@@ -1,6 +1,8 @@
 import Link from "next/link";
 
 import { LatestPost } from "~/app/_components/post";
+import { ModeToggle } from "~/components/ui/mode-toggle";
+// import { ModeToggle } from "~/components/ui/mode-toggle";
 import { api, HydrateClient } from "~/trpc/server";
 
 export default async function Home() {
@@ -46,6 +48,7 @@ export default async function Home() {
           </div>
 
           <LatestPost />
+          <ModeToggle />
         </div>
       </main>
     </HydrateClient>

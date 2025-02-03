@@ -16,17 +16,17 @@ miss of the school.
 
 ## How to use
 
->! NOTE:
+>NOTE:
 > In this example we use bun as package manager, you can use npm or yarn if you want.
 1. Copy `.env.example` and rename to `.env` and add your keys found in the dashboard.
 
 ```
-    mv .env.example .env
+mv .env.example .env
 ```
 
 2. Run this to install dependencies
 ```
- bun install
+bun install
 ```
 
 3. Once installed, ./start-database.sh will start the database
