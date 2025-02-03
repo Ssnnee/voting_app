@@ -1,6 +1,5 @@
-import { LoginCardForm } from "~/components/login-card-form";
 import { CardSelectSkeleton } from "~/components/ui/card-select-skeleton";
-import { api, HydrateClient } from "~/trpc/server";
+import { HydrateClient } from "~/trpc/server";
 
 export default async function Home() {
   return (
