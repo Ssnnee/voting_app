@@ -34,6 +34,9 @@ export function LoginCardForm() {
   const router = useRouter()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      registrationNumber: "",
+    },
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
