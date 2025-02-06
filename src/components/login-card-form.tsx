@@ -26,8 +26,8 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 
 const formSchema = z.object({
-  registrationNumber: z.string().min(5, {
-    message: "Le matricule doit contenir au moins 2 caractères",
+  registrationNumber: z.string().min(6, {
+    message: "Le matricule doit contenir au moins 6 caractères",
   }),
 })
 export function LoginCardForm() {
