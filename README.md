@@ -16,35 +16,35 @@ miss of the school.
 
 ## How to use
 
->NOTE:
+>[!NOTE]:
 > In this example we use bun as package manager, you can use npm or yarn if you want.
 1. Copy `.env.example` and rename to `.env` and add your keys found in the dashboard.
 
-```
+```bash
 mv .env.example .env
 ```
 
 2. Run this to install dependencies
-```
+```bash
 bun install
 ```
 
 3. Once installed, ./start-database.sh will start the database
 This will create or start a docker container with the postgres database.
->! NOTE:
+>[!NOTE]:
 > You should have docker installed.
-```
+```bash
 ./start-database.sh
 ```
 
 4. Initialize the prisma database:
 This will push the schema to the database and generate the client.
-```
+```bash
 bun db:push
 ```
 
 6. Start the server
-```
+```bash
 bun dev
 ```
 
