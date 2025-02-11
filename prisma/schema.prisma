@@ -10,11 +10,40 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Post {
+model Student {
     id        Int      @id @default(autoincrement())
-    name      String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+    resgitrationNumber      String
+    votes  Vote[]
+}
 
-    @@index([name])
+model Candidate {
+    id        Int      @id @default(autoincrement())
+    firstname      String
+    lastname      String
+    imageUrl      String
+
+    poll      Poll @relation(fields: [id], references: [id])
+    pollId    Int
+    votes  Vote[]
+}
+
+model Poll {
+    id        Int      @id @default(autoincrement())
+    label      String
+    startDate      DateTime
+    endDate      DateTime
+    isOver      Boolean
+    candidates      Candidate[]
+    votes  Vote[]
+}
+
+model Vote {
+    id        Int      @id @default(autoincrement())
+    createdAt DateTime @default(now())
+    student      Student @relation(fields: [studentId], references: [id])
+    studentId    Int
+    poll      Poll @relation(fields: [pollId], references: [id])
+    pollId    Int
+    candidate      Candidate @relation(fields: [candidateId], references: [id])
+    candidateId    Int
 }
