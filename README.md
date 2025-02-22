@@ -16,7 +16,7 @@ miss of the school.
 
 ## How to use
 
->[!NOTE]:
+>[!NOTE]
 > In this example we use bun as package manager, you can use npm or yarn if you want.
 1. Copy `.env.example` and rename to `.env` and add your keys found in the dashboard.
 
@@ -32,7 +32,7 @@ bun install
 3. Once installed, ./start-database.sh will start the database
 This will create or start a docker container with the postgres database.
 This script assumes that you can run docker without sudo.
->[!NOTE]:
+>[!NOTE]
 > You should have docker installed.
 ```bash
 ./start-database.sh
@@ -61,3 +61,14 @@ bun dev
 ## How to contribute
 If you want to contribute to the project, you can check the [TODOS.md](./TODOS.md)
 file to see what needs to be done.
+
+Since the project does not contain the tests yet, you should be careful when making
+changes to the code. You should also make sure that the code is building and running
+correctly.
+
+```bash
+bun run build
+```
+And, do not change the build rules, if you want to change the build rules, you
+should create an issue and discuss it with the maintainers.
+

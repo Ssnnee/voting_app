@@ -3,6 +3,7 @@ This are the features that are missing in the project, if you want to contribute
 you can check this list to see what needs to be done. You can also suggest new features
 by creating an issue.
 
+
 ## How to contribute
 1. Fork the repository
 2. Clone the repository
@@ -23,6 +24,8 @@ by creating an issue.
     The voting should be open for a specific time.
 - [ ] Improve the overall UI:
     The UI should be updated to look better and maybe more interactive.
+- Write tests
+
 
 
 This are the most needed features for the project. Some of them are implicit.
