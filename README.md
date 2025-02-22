@@ -56,3 +56,8 @@ bun dev
 - [PostgreSQL](https://www.postgresql.org/)
 - [Shadcn/ui](https://ui.shadcn.com/)
 - [tRPC](https://trpc.io/)
+
+
+## How to contribute
+If you want to contribute to the project, you can check the [TODOS.md](./TODOS.md)
+file to see what needs to be done.
