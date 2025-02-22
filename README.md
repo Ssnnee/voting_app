@@ -31,6 +31,7 @@ bun install
 
 3. Once installed, ./start-database.sh will start the database
 This will create or start a docker container with the postgres database.
+This script assumes that you can run docker without sudo.
 >[!NOTE]:
 > You should have docker installed.
 ```bash
