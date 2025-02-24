@@ -24,28 +24,53 @@ import { toast } from "~/hooks/use-toast"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
+import { api } from "~/trpc/react"
 
 const formSchema = z.object({
   registrationNumber: z.string().min(6, {
     message: "Le matricule doit contenir au moins 6 caractères",
   }),
 })
+
 export function LoginCardForm() {
-  const router = useRouter()
+  const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       registrationNumber: "",
     },
-  })
+  });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    toast({
-      title: "Connexion réussie",
-      description: "Vous êtes connecté avec succès",
-    })
-    router.push('/vote')
-    console.log(values)
+  const { mutateAsync: fetchUserById } = api.student.getStudentByResgistrationNumber.useMutation();
+
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      const user = await fetchUserById({ id: values.registrationNumber });
+
+      if (user?.resgitrationNumber) {
+        toast({
+          title: "Connexion réussie",
+          description: "Vous êtes connecté avec succès",
+        });
+
+        router.push('/vote');
+        console.log("Votre matricule est :", values);
+        console.log("Here the fetched value", user.resgitrationNumber);
+      } else {
+        toast({
+          title: "Connexion échouée",
+          description: "Votre matricule est incorrect",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Erreur",
+        description: "Une erreur s'est produite lors de la connexion",
+        variant: "destructive",
+      });
+      console.error("Fetch error:", error);
+    }
   }
 
   return (
@@ -66,7 +91,7 @@ export function LoginCardForm() {
                 <FormItem>
                   <FormLabel>Matricule</FormLabel>
                   <FormControl>
-                    <Input placeholder="shadcn" {...field} />
+                    <Input placeholder="sne" {...field} />
                   </FormControl>
                   <FormDescription>
                     Écrivez votre matricule pour vous connecter
