@@ -18,6 +18,10 @@ by creating an issue.
     The user should be able to login with is registration number.
 - [x] Create the backend of voting:
     The user should be able to vote for the miss of the school.
+- [ ] Sync the voting front end with the backend:
+    This is almost done, just have to make a request to get candidates of the
+    specific poll, should create a `getCandidates` procedure on the poll router.
+    Once the candidates are fetched, the user should be able to vote.
 - [ ] Create the backend of the results:
     The user should be able to see the results of the voting.
 - [ ] Create the timer for the voting:
@@ -25,8 +29,6 @@ by creating an issue.
 - [ ] Improve the overall UI:
     The UI should be updated to look better and maybe more interactive.
 - Write tests
-
-
 
 This are the most needed features for the project. Some of them are implicit.
 Like the backend of the voting, the user should be able to vote for the miss of
