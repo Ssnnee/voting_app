@@ -10,7 +10,6 @@ import { voteRouter } from "./routers/vote";
  * All routers added in /api/routers should be manually added here.
  */
 export const appRouter = createTRPCRouter({
-  post: postRouter,
   student: studentRouter,
   poll: pollRouter,
   vote: voteRouter,

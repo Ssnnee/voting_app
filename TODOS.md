@@ -16,7 +16,7 @@ by creating an issue.
 ## Todos
 - [x] Make the backend of authentication:
     The user should be able to login with is registration number.
-- [ ] Create the backend of voting:
+- [x] Create the backend of voting:
     The user should be able to vote for the miss of the school.
 - [ ] Create the backend of the results:
     The user should be able to see the results of the voting.

@@ -10,7 +10,6 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "./ui/form"
 import {
@@ -20,6 +19,8 @@ import {
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { SelectCard } from "./select-card"
+import { constrainedMemory } from "process"
+import { api } from "~/trpc/react"
 
 const formSchema = z.object({
   candidateID: z.string().min(1, {
@@ -27,7 +28,11 @@ const formSchema = z.object({
   }),
 })
 
-export function VotingForm() {
+interface VotingFormProps {
+  pollId: number
+}
+
+export function VotingForm({ pollId }: VotingFormProps) {
   const router = useRouter()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -35,12 +40,19 @@ export function VotingForm() {
       candidateID: "",
     },
   })
+  console.log("Poll ID: ", pollId)
 
+  const createVote = api.vote.create.useMutation()
   function onSubmit(data: z.infer<typeof formSchema>) {
     toast({
       title: "Vous avez voté",
       description: 'Vous avez voté pour le n° ' + data.candidateID,
     }),
+    createVote.mutateAsync({
+      idCandidate: parseInt(data.candidateID),
+      idPoll: pollId,
+      idStudent: 1,
+    })
     router.push("/results")
   }
 
