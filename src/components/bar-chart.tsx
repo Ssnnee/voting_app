@@ -12,13 +12,13 @@ import {
   CardTitle,
 } from "./ui/card"
 import {
-  ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from "./ui/chart"
+import type { ChartConfig } from "./ui/chart"
 const chartData = [
-  { name: "Jane Doe", desktop: 186, mobile: 80 },
+  { name: "Jane Doe", desktop: 200, mobile: 80 },
   { name: "Jasmine Toe", desktop: 305, mobile: 200 },
   { name: "Elanga Richnelle", desktop: 237, mobile: 120 },
   { name: "April Oda" , desktop: 73, mobile: 190 },

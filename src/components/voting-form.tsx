@@ -2,9 +2,9 @@
 
 import { z } from "zod"
 
-import { toast } from "~/hooks/use-toast"
+// import { toast } from "~/hooks/use-toast"
 import { Button } from "./ui/button"
-import { useRouter } from "next/navigation"
+// import { useRouter } from "next/navigation"
 import {
   Form,
   FormControl,
@@ -19,8 +19,7 @@ import {
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { SelectCard } from "./select-card"
-import { constrainedMemory } from "process"
-import { api } from "~/trpc/react"
+// import { api } from "~/trpc/react"
 
 const formSchema = z.object({
   candidateID: z.string().min(1, {
@@ -33,27 +32,29 @@ interface VotingFormProps {
 }
 
 export function VotingForm({ pollId }: VotingFormProps) {
-  const router = useRouter()
+  console.log(pollId)
+  // const router = useRouter()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       candidateID: "",
     },
   })
-  console.log("Poll ID: ", pollId)
 
-  const createVote = api.vote.create.useMutation()
+  // const createVote = api.vote.create.useMutation()
+
   function onSubmit(data: z.infer<typeof formSchema>) {
-    toast({
-      title: "Vous avez voté",
-      description: 'Vous avez voté pour le n° ' + data.candidateID,
-    }),
-    createVote.mutateAsync({
-      idCandidate: parseInt(data.candidateID),
-      idPoll: pollId,
-      idStudent: 1,
-    })
-    router.push("/results")
+  //   toast({
+  //     title: "Vous avez voté",
+  //     description: 'Vous avez voté pour le n° ' + data.candidateID,
+  //   }),
+  //   createVote.mutateAsync({
+  //     idCandidate: parseInt(data.candidateID),
+  //     idPoll: pollId,
+  //     idStudent: 1,
+  //   })
+  //   router.push("/results")
+    console.log(data)
   }
 
   return (

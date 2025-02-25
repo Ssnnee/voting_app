@@ -11,14 +11,6 @@ export const studentRouter = createTRPCRouter({
       };
     }),
 
-  getLatest: publicProcedure.query(async ({ ctx }) => {
-    const post = await ctx.db.post.findFirst({
-      orderBy: { createdAt: "desc" },
-    });
-
-    return post ?? null;
-  }),
-
   getStudents: publicProcedure.query(async ({ ctx }) => {
     return ctx.db.student.findMany();
   }),

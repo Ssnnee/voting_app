@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface SelectCardProps {
   missPictureUrd: string
   missFirstName: string
@@ -8,7 +10,7 @@ export function SelectCard(
 ) {
   return (
     <div className="flex flex-col items-center justify-center my-2">
-      <img
+      <Image
         src={missPictureUrd}
         alt="Photo de la miss nom"
         width={300}
