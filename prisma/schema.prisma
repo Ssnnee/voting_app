@@ -35,15 +35,18 @@ model Poll {
     isOver      Boolean
     candidates      Candidate[]
     votes  Vote[]
+
+    createdAt DateTime @default(now())
 }
 
 model Vote {
     id        Int      @id @default(autoincrement())
-    createdAt DateTime @default(now())
     student      Student @relation(fields: [studentId], references: [id])
     studentId    Int
     poll      Poll @relation(fields: [pollId], references: [id])
     pollId    Int
     candidate      Candidate @relation(fields: [candidateId], references: [id])
     candidateId    Int
+
+    createdAt DateTime @default(now())
 }

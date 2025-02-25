@@ -1,17 +1,27 @@
 import { LoginCardForm } from "~/components/login-card-form";
-import { api, HydrateClient } from "~/trpc/server";
+import { HydrateClient } from "~/trpc/server";
+import { auth } from "auth";
+import Link from "next/link";
+import { Button } from "~/components/ui/button";
 
 export default async function Home() {
-  const hello = await api.post.hello({ text: "from tRPC" });
-
-  void api.post.getLatest.prefetch();
+  const session = await auth();
 
   return (
     <HydrateClient>
       <main className="flex min-h-screen flex-col mx-4 items-center justify-center">
-        <p> Samuel Etape ya Souka </p>
-        <p> { hello?.greeting } </p>
-        <LoginCardForm />
+        {
+          session ? (
+            <div>
+              <p> Welcome back </p>
+              <Button variant="ghost">
+                <Link href="/results">Voir les resultats</Link>
+              </Button>
+            </div>
+          ) : (
+            <LoginCardForm />
+            )
+        }
       </main>
     </HydrateClient>
   );

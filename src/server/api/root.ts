@@ -1,6 +1,8 @@
 import { postRouter } from "~/server/api/routers/post";
 import { createCallerFactory, createTRPCRouter } from "~/server/api/trpc";
-import { studenttRouter } from "./routers/student";
+import { studentRouter } from "./routers/student";
+import { pollRouter } from "./routers/poll";
+import { voteRouter } from "./routers/vote";
 
 /**
  * This is the primary router for your server.
@@ -9,8 +11,9 @@ import { studenttRouter } from "./routers/student";
  */
 export const appRouter = createTRPCRouter({
   post: postRouter,
-  student: studenttRouter,
-  vote: postRouter,
+  student: studentRouter,
+  poll: pollRouter,
+  vote: voteRouter,
 });
 
 // export type definition of API

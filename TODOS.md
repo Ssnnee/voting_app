@@ -14,7 +14,7 @@ by creating an issue.
 7. Wait for the review
 
 ## Todos
-- [ ] Make the backend of authentication:
+- [x] Make the backend of authentication:
     The user should be able to login with is registration number.
 - [ ] Create the backend of voting:
     The user should be able to vote for the miss of the school.

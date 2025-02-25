@@ -44,7 +44,7 @@ This will push the schema to the database and generate the client.
 bun db:push
 ```
 
-6. Start the server
+5. Start the server
 ```bash
 bun dev
 ```
@@ -56,6 +56,7 @@ bun dev
 - [PostgreSQL](https://www.postgresql.org/)
 - [Shadcn/ui](https://ui.shadcn.com/)
 - [tRPC](https://trpc.io/)
+- [Authjs](https://authjs.dev/)
 
 
 ## How to contribute
